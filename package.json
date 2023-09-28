@@ -1,5 +1,12 @@
 {
   "dependencies": {
     "cesium": "^1.109.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "scripts": {
+    "start": "live-server"
   }
+  
 }
