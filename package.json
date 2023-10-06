@@ -1,6 +1,8 @@
 {
   "dependencies": {
-    "cesium": "^1.109.0"
+    "cesium": "^1.109.0",
+    "three": "^0.157.0",
+    "web-ifc": "^0.0.44"
   },
   "devDependencies": {
     "live-server": "^1.2.2"
@@ -8,5 +10,4 @@
   "scripts": {
     "start": "live-server"
   }
-  
 }
