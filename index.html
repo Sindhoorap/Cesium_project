@@ -23,14 +23,48 @@
       viewer.scene.primitives.add(buildingsTileset);
 
       //load buildings from assets
-      const building1 = await Cesium.Cesium3DTileset.fromIonAssetId(2303218);
-      viewer.scene.primitives.add(building1);
-      const building2 = await Cesium.Cesium3DTileset.fromIonAssetId(2303275);
-      viewer.scene.primitives.add(building2);
+      const advancedModelGltf = await Cesium.Cesium3DTileset.fromIonAssetId(
+        2320073
+      );
+      viewer.scene.primitives.add(advancedModelGltf);
+      const advancedModelGlb = await Cesium.Cesium3DTileset.fromIonAssetId(
+        2320093
+      );
+      viewer.scene.primitives.add(advancedModelGlb);
+      const schependomlaanGltf = await Cesium.Cesium3DTileset.fromIonAssetId(
+        2320087
+      );
+      viewer.scene.primitives.add(schependomlaanGltf);
+      const schependomlaanGlb = await Cesium.Cesium3DTileset.fromIonAssetId(
+        2320091
+      );
+      viewer.scene.primitives.add(schependomlaanGlb);
+      const ifcbridgemodel01Gltf = await Cesium.Cesium3DTileset.fromIonAssetId(
+        2320159
+      );
+      viewer.scene.primitives.add(ifcbridgemodel01Gltf);
+      const ifcbridgemodel01Glb = await Cesium.Cesium3DTileset.fromIonAssetId(
+        2320161
+      );
+      viewer.scene.primitives.add(ifcbridgemodel01Glb);
+      const clinicGltf = await Cesium.Cesium3DTileset.fromIonAssetId(2320162);
+      viewer.scene.primitives.add(clinicGltf);
+      const clinicGlb = await Cesium.Cesium3DTileset.fromIonAssetId(2320164);
+      viewer.scene.primitives.add(clinicGlb);
+      const exampleGltf = await Cesium.Cesium3DTileset.fromIonAssetId(2320169);
+      viewer.scene.primitives.add(exampleGltf);
+      const exampleGlb = await Cesium.Cesium3DTileset.fromIonAssetId(2320169);
+      viewer.scene.primitives.add(exampleGlb);
+      const tested_sample_projectGltf =
+        await Cesium.Cesium3DTileset.fromIonAssetId(2320177);
+      viewer.scene.primitives.add(tested_sample_projectGltf);
+      const tested_sample_projectGlb =
+        await Cesium.Cesium3DTileset.fromIonAssetId(2320174);
+      viewer.scene.primitives.add(tested_sample_projectGlb);
 
       // Move the camera to the new building.
       viewer.camera.flyTo({
-        destination: building1.boundingSphere.center,
+        destination: advancedModelGltf.boundingSphere.center,
         orientation: {
           heading: Cesium.Math.toRadians(0.0),
           pitch: Cesium.Math.toRadians(-15.0),
