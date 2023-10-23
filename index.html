@@ -14,62 +14,172 @@
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjMGUxYzNkMC03YWM1LTQwMjMtOTZkZC00YmExYTdjZTE2MzIiLCJpZCI6MTY2ODQ5LCJpYXQiOjE2OTU2Nzg4OTB9.oLDrcxaf__EWIdI8iwxdHccW758LerKvhAmjfWhscDg";
 
       // Initialize the viewer with Cesium World Terrain.
-      const viewer = new Cesium.Viewer("cesiumContainer", {
-        terrain: Cesium.Terrain.fromWorldTerrain(),
-      });
+      const viewer = new Cesium.Viewer("cesiumContainer");
 
-      // Add Cesium OSM Buildings.
-      const buildingsTileset = await Cesium.createOsmBuildingsAsync();
-      viewer.scene.primitives.add(buildingsTileset);
-
-      //load buildings from assets
-      const advancedModelGltf = await Cesium.Cesium3DTileset.fromIonAssetId(
-        2320073
-      );
-      viewer.scene.primitives.add(advancedModelGltf);
-      const advancedModelGlb = await Cesium.Cesium3DTileset.fromIonAssetId(
-        2320093
-      );
-      viewer.scene.primitives.add(advancedModelGlb);
-      const schependomlaanGltf = await Cesium.Cesium3DTileset.fromIonAssetId(
-        2320087
-      );
-      viewer.scene.primitives.add(schependomlaanGltf);
-      const schependomlaanGlb = await Cesium.Cesium3DTileset.fromIonAssetId(
-        2320091
-      );
-      viewer.scene.primitives.add(schependomlaanGlb);
-      const ifcbridgemodel01Gltf = await Cesium.Cesium3DTileset.fromIonAssetId(
-        2320159
-      );
-      viewer.scene.primitives.add(ifcbridgemodel01Gltf);
-      const ifcbridgemodel01Glb = await Cesium.Cesium3DTileset.fromIonAssetId(
-        2320161
-      );
-      viewer.scene.primitives.add(ifcbridgemodel01Glb);
-      const clinicGltf = await Cesium.Cesium3DTileset.fromIonAssetId(2320162);
-      viewer.scene.primitives.add(clinicGltf);
-      const clinicGlb = await Cesium.Cesium3DTileset.fromIonAssetId(2320164);
-      viewer.scene.primitives.add(clinicGlb);
-      const exampleGltf = await Cesium.Cesium3DTileset.fromIonAssetId(2320169);
-      viewer.scene.primitives.add(exampleGltf);
-      const exampleGlb = await Cesium.Cesium3DTileset.fromIonAssetId(2320169);
-      viewer.scene.primitives.add(exampleGlb);
-      const tested_sample_projectGltf =
-        await Cesium.Cesium3DTileset.fromIonAssetId(2320177);
-      viewer.scene.primitives.add(tested_sample_projectGltf);
-      const tested_sample_projectGlb =
-        await Cesium.Cesium3DTileset.fromIonAssetId(2320174);
-      viewer.scene.primitives.add(tested_sample_projectGlb);
-
-      // Move the camera to the new building.
-      viewer.camera.flyTo({
-        destination: advancedModelGltf.boundingSphere.center,
-        orientation: {
-          heading: Cesium.Math.toRadians(0.0),
-          pitch: Cesium.Math.toRadians(-15.0),
+      const assets = [
+        {
+          folder: "dracoGltfFiles",
+          sources: [
+            {
+              name: "advanced_model-draco",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.0908867151,
+                28.6445092254
+              ),
+            },
+            {
+              name: "clinic-draco",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.0916964108,
+                28.6412930218
+              ),
+            },
+            {
+              name: "example-draco",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.0918921726,
+                28.643951678
+              ),
+            },
+            {
+              name: "ifcbridge-model01-draco",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.0905421995,
+                28.6437370673
+              ),
+            },
+            {
+              name: "schependomlaan-draco",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.0930825445,
+                28.6483242924
+              ),
+            },
+            {
+              name: "tested_sample_project-draco",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.0934830357,
+                28.6512286229
+              ),
+            },
+          ],
+          extension: "gltf",
         },
+        {
+          folder: "glbFiles",
+          sources: [
+            {
+              name: "advanced_model",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1739460464,
+                28.6124452728
+              ),
+            },
+            {
+              name: "clinic",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1726212336,
+                28.6143818697
+              ),
+            },
+            {
+              name: "example",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1755418406,
+                28.6139742977
+              ),
+            },
+            {
+              name: "ifcbridge-model01",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1729414668,
+                28.6171952615
+              ),
+            },
+            {
+              name: "schependomlaan",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1747375193,
+                28.6189547381
+              ),
+            },
+            {
+              name: "tested_sample_project",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1733822566,
+                28.6184640994
+              ),
+            },
+          ],
+          extension: "glb",
+        },
+        {
+          folder: "gltfFiles",
+          sources: [
+            {
+              name: "advanced_model",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1841605419,
+                28.6095608994
+              ),
+            },
+            {
+              name: "clinic",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1828197685,
+                28.6124347914
+              ),
+            },
+            {
+              name: "example",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1851087349,
+                28.616449815
+              ),
+            },
+            {
+              name: "ifcbridge-model01",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1890580451,
+                28.6168330348
+              ),
+            },
+            {
+              name: "schependomlaan",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1874682325,
+                28.6085840974
+              ),
+            },
+            {
+              name: "tested_sample_project",
+              coordinates: Cesium.Cartesian3.fromDegrees(
+                77.1838127308,
+                28.6056007757
+              ),
+            },
+          ],
+          extension: "gltf",
+        },
+      ];
+
+      assets.forEach((asset) => {
+        asset.sources.forEach((source) => {
+          const entity = viewer.entities.add({
+            name: `${source.name}-${asset.extension}`,
+            position: source.coordinates,
+            model: {
+              uri: `./assets/${asset.folder}/${source.name}.${asset.extension}`,
+            },
+          });
+
+          if (source.name === "example" && asset.extension === "glb") {
+            // change name to fly to asset initially
+            viewer.flyTo(entity);
+          }
+        });
       });
+
     </script>
   </body>
 </html>
